@@ -55,21 +55,21 @@ services:
     ############################
     # Postgres
     ############################
-#    db:
-#        image: postgres:14-alpine
-#        restart: unless-stopped
-#        container_name: ${APP_NAME:-postgres}-db
-#        environment:
-#            POSTGRES_PASSWORD: ${DB_PASSWORD:-123456789}
-#        ports:
-#            - "${DB_PORT:-5432}:${DB_PORT:-5432}"
-#        volumes:
-#            - /home/dime/postgresdb14:/var/lib/postgresql/data
-#            - ./docker/postgres/01_estrutura_policia.sql:/docker-entrypoint-initdb.d/01_estrutura_policia.sql
-#            - ./docker/postgres/02_estrutura_seguranca.sql:/docker-entrypoint-initdb.d/02_estrutura_seguranca.sql
-#            - ./docker/postgres/03_dados.sql:/docker-entrypoint-initdb.d/03_dados.sql
-#        networks:
-#            - dev
+    db:
+        image: postgres:14-alpine
+        restart: unless-stopped
+        container_name: ${APP_NAME:-postgres}-db
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-123456789}
+        ports:
+            - "${DB_PORT:-5432}:${DB_PORT:-5432}"
+        volumes:
+            - /home/dime/postgresdb14:/var/lib/postgresql/data
+            - ./docker/postgres/01_estrutura_policia.sql:/docker-entrypoint-initdb.d/01_estrutura_policia.sql
+            - ./docker/postgres/02_estrutura_seguranca.sql:/docker-entrypoint-initdb.d/02_estrutura_seguranca.sql
+            - ./docker/postgres/03_dados.sql:/docker-entrypoint-initdb.d/03_dados.sql
+        networks:
+            - dev
 
 networks:
     dev:
